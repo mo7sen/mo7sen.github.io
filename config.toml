@@ -1,5 +1,119 @@
 baseURL = "https://mo7sen.github.io/"
 languageCode = "en-us"
-title = "Sisyphean Portfolio"
+title = "Robear Selwans' Portfolio"
 
-theme = ["photophobia"]
+theme = "FeelIt"
+
+[params]
+version = "1.0.X"
+
+[params.search]
+  enable = true
+  type = "lunr"
+  contentLength = 4000
+  placeholder = ""
+  maxResultLength = 10
+  snippetLength = 30
+  hightlightTag = "em"
+  absoluteURL = false
+
+[params.header]
+  desktopMode = "fixed"
+  mobileMode = "auto"
+  [params.header.title]
+  logo = ""
+  name = "Robear Selwans' Portfolio"
+  pre = ""
+  post = ""
+  typeit = false
+
+[params.footer]
+  enable = true
+  custom = ''
+  hugo = false
+  copyright = true
+  author = true
+  since = 2021
+
+[params.typeit]
+  speed = 1
+  cursorSpeed = 1000
+  cursorChar = "|"
+  duration = -1
+
+[params.home]
+  [params.home.profile]
+    enable = true
+    gravatarEmail = ""
+    avatarURL = "/images/avatar.jpg"
+    title = "Robear Selwans"
+    subtitle = "Never too late for a subtitle"
+    typeit = false
+    social = true
+
+  [params.home.posts]
+    enable = true
+    paginate = 6
+    imagePreview = true
+
+  [params.home.projects]
+    enable = true
+    paginate = 6
+    imagePreview = true
+
+[params.page]
+  [params.page.share]
+    enable = true
+    Twitter = true
+    Facebook = true
+    Reddit = true
+
+[params.social]
+  Github = "mo7sen"
+  Twitter = "mo7sener"
+  Youtubechannel = "UCGZTU14QiV-8JhP9yfb9ygw"
+  Twitch = "mo7sener"
+  Email = "robear.selwans@outlook.com"
+  Resume = ""
+
+[menu]
+  [[menu.main]]
+    identifier = "projects"
+    pre = ""
+    post = ""
+    name = "Projects"
+    url = "/projects/"
+    title = ""
+    weight = 1
+
+  [[menu.main]]
+    identifier = "posts"
+    pre = ""
+    post = ""
+    name = "Posts"
+    url = "/posts/"
+    title = ""
+    weight = 1
+
+  [[menu.main]]
+    identifier = "about"
+    pre = ""
+    post = ""
+    name = "About"
+    url = "/about/"
+    title = ""
+    weight = 1
+
+
+[author]
+  name = "Robear Selwans"
+  email = "robear.selwans@outlook.com"
+  link = "https://mo7sen.github.io/about"
+
+[sitemap]
+  changefreq = "daily"
+  filename = "sitemap.xml"
+  priority = 0.5
+
+[Permalinks]
+  posts = ":filename"
