@@ -1,6 +1,10 @@
 ---
 title: "Zwatch"
 date: 2021-07-31T13:25:09Z
+
+categories: ["Project"]
+tags: ["Game"]
+
 draft: false
 ---
 

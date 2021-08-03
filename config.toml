@@ -7,19 +7,10 @@ theme = "FeelIt"
 [params]
 version = "1.0.X"
 
-[params.search]
-  enable = true
-  type = "lunr"
-  contentLength = 4000
-  placeholder = ""
-  maxResultLength = 10
-  snippetLength = 30
-  hightlightTag = "em"
-  absoluteURL = false
-
 [params.header]
   desktopMode = "fixed"
   mobileMode = "auto"
+
   [params.header.title]
   logo = ""
   name = "Robear Selwans' Portfolio"
@@ -34,6 +25,14 @@ version = "1.0.X"
   copyright = true
   author = true
   since = 2021
+
+# [params.section]
+#   paginate = 10
+#   dateFormat = "01-02"
+
+# [params.list]
+#   paginate = 10
+#   dateFormat = "01-02"
 
 [params.typeit]
   speed = 1
@@ -82,7 +81,7 @@ version = "1.0.X"
     pre = ""
     post = ""
     name = "Projects"
-    url = "/projects/"
+    url = "/categories/project/"
     title = ""
     weight = 1
 
@@ -91,9 +90,27 @@ version = "1.0.X"
     pre = ""
     post = ""
     name = "Posts"
-    url = "/posts/"
+    url = "/categories/post/"
     title = ""
-    weight = 1
+    weight = 2
+
+  [[menu.main]]
+    identifier = "tags"
+    pre = ""
+    post = ""
+    name = "Tags"
+    url = "/tags/"
+    title = ""
+    weight = 3
+
+  [[menu.main]]
+    identifier = "categories"
+    pre = ""
+    post = ""
+    name = "Categories"
+    url = "/categories/"
+    title = ""
+    weight = 3
 
   [[menu.main]]
     identifier = "about"
@@ -116,4 +133,14 @@ version = "1.0.X"
   priority = 0.5
 
 [Permalinks]
-  posts = ":filename"
+  # posts = ":section/:title"
+  # blogposts = ":filename"
+  # projects = ":section/:title"
+
+[markup]
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    lineNos = true
+    lineNumbersInTable = true
+    noClasses = false

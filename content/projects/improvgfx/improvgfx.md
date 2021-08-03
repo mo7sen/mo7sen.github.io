@@ -1,6 +1,10 @@
 ---
 title: "ImprovGFX"
 date: 2021-07-31T13:25:24Z
+
+categories: ["Project"]
+tags: ["Graphics"]
+
 draft: false
 ---
 
