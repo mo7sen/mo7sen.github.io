@@ -1,0 +1,127 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=robots content="noodp">
+<title>evol - Robear Selwans' Portfolio</title><meta name=description content="My very first game engine"><meta property="og:title" content="evol">
+<meta property="og:description" content="My very first game engine">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mo7sen.github.io/projects/evol/evol/"><meta property="article:section" content="projects">
+<meta property="article:published_time" content="2021-07-31T13:25:00+00:00">
+<meta property="article:modified_time" content="2021-07-31T13:25:00+00:00">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="evol">
+<meta name=twitter:description content="My very first game engine">
+<meta name=application-name content="Robear Selwans' Portfolio">
+<meta name=apple-mobile-web-app-title content="Robear Selwans' Portfolio"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://mo7sen.github.io/projects/evol/evol/><link rel=prev href=https://mo7sen.github.io/projects/evol/modules/asset-manager/><link rel=next href=https://mo7sen.github.io/projects/zwatch/zwatch/><link rel=stylesheet href=/css/page.min.css><link rel=stylesheet href=/css/home.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"evol","inLanguage":"en-us","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/mo7sen.github.io\/projects\/evol\/evol\/"},"genre":"projects","keywords":"Game Engine","wordcount":300,"url":"https:\/\/mo7sen.github.io\/projects\/evol\/evol\/","datePublished":"2021-07-31T13:25:00+00:00","dateModified":"2021-07-31T13:25:00+00:00","publisher":{"@type":"Organization","name":"Robear Selwans"},"author":{"@type":"Person","name":"Robear Selwans"},"description":"My very first game engine"}</script></head><body data-header-desktop=fixed data-header-mobile=auto><script>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':''==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:''==='dark')&&document.body.setAttribute('theme','dark')</script>
+<div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title="Robear Selwans' Portfolio">Robear Selwans' Portfolio</a>
+</div>
+<div class=menu>
+<div class=menu-inner><a class=menu-item href=/about/> About </a><a class=menu-item href=/categories/project/> Projects </a><a class=menu-item href=/categories/post/> Posts </a><a class=menu-item href=/categories/> Categories </a><a class=menu-item href=/tags/> Tags </a><span class="menu-item delimiter"></span><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
+<i class="fas fa-adjust fa-fw"></i>
+</a>
+</div>
+</div>
+</div>
+</header><header class=mobile id=header-mobile>
+<div class=header-container>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title="Robear Selwans' Portfolio">Robear Selwans' Portfolio</a>
+</div>
+<div class=menu-toggle id=menu-toggle-mobile>
+<span></span><span></span><span></span>
+</div>
+</div>
+<div class=menu id=menu-mobile><a class=menu-item href=/about/ title>About</a><a class=menu-item href=/categories/project/ title>Projects</a><a class=menu-item href=/categories/post/ title>Posts</a><a class=menu-item href=/categories/ title>Categories</a><a class=menu-item href=/tags/ title>Tags</a><div class=menu-item><a href=javascript:void(0); class=theme-switch title="Switch Theme">
+<i class="fas fa-adjust fa-fw"></i>
+</a>
+</div></div>
+</div>
+</header><main class=main>
+<div class=container><div class=toc id=toc-auto style=top:8rem>
+<h2 class=toc-title>Contents</h2>
+<div class=toc-content id=toc-content-auto></div>
+</div><article class="page single special" data-toc=disable><h2 class="single-title animated fadeInDown faster">evol</h2><div class=single-card><div class="details toc" id=toc-static data-kept>
+<div class="details-summary toc-title">
+<span>Contents</span>
+<span><i class="details-icon fas fa-angle-right"></i></span>
+</div>
+<div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
+<ul>
+<li><a href=#introduction>Introduction</a></li>
+<li><a href=#objectives>Objectives</a></li>
+<li><a href=#implementation>Implementation</a>
+<ul>
+<li><a href=#core>Core</a></li>
+<li><a href=#scripting>Scripting</a></li>
+<li><a href=#physics>Physics</a></li>
+<li><a href=#renderer>Renderer</a></li>
+<li><a href=#world>World</a></li>
+<li><a href=#asset-manager>Asset Manager</a></li>
+</ul>
+</li>
+</ul>
+</nav></div>
+</div><div class=content id=content><h2 id=introduction>Introduction</h2>
+<p>Being bored and having to pick a capstone project for university&rsquo;s last year, I
+thought to myself: &ldquo;Why not build a game engine?&rdquo; I knew from the start that
+this would definitely be a difficult task that I will most probably not be able
+to fully tackle in time, but I was too bored to care :D. So I went ahead,
+gathered a team of three (including me) and set out to build our very first game
+engine.</p>
+<h2 id=objectives>Objectives</h2>
+<p>The engine had some objectives, some of which were met and others that weren&rsquo;t.
+Those objectives were:</p>
+<ul>
+<li><strong>Be as modular as possible</strong>: Due to the fact that the engine was
+expected to keep on evolving, it was decided that it&rsquo;d be better to have
+it be modular enough for subsystems to be easily replaced without
+needing to compile the entire engine whenever something is changed in
+one of its modules.</li>
+<li><strong>Be cross-platform</strong>: Cross-platform is such a loose term, when you thing
+about it; all we did was support both Windows and Linux and we got to
+call the engine &ldquo;cross-platform&rdquo;, so I&rsquo;d call that a win.</li>
+<li><strong>Be mostly written in C</strong>: uhmmm&mldr; There is actually no specific reason
+for wanting to write a game engine in C; we simply settled on doing that
+because it seemed more challenging and thus would give us more style
+points. That and the fact that writing pure C actually helped us learn a
+lot more about what the limitations of the language are and how they can
+be worked around.</li>
+</ul>
+<h2 id=implementation>Implementation</h2>
+<h3 id=core>Core</h3>
+<p>More details can be found <a href=https://mo7sen.github.io/projects/evol/modules/core/ rel>here</a></p>
+<h3 id=scripting>Scripting</h3>
+<p>More details can be found <a href=https://mo7sen.github.io/projects/evol/modules/scripting/ rel>here</a></p>
+<h3 id=physics>Physics</h3>
+<p>More details can be found <a href=https://mo7sen.github.io/projects/evol/modules/physics/ rel>here</a></p>
+<h3 id=renderer>Renderer</h3>
+<p>More details can be found <a href=https://mo7sen.github.io/projects/evol/modules/renderer/ rel>here</a></p>
+<h3 id=world>World</h3>
+<p>More details can be found <a href=https://mo7sen.github.io/projects/evol/modules/world/ rel>here</a></p>
+<h3 id=asset-manager>Asset Manager</h3>
+<p>More details can be found <a href=https://mo7sen.github.io/projects/evol/modules/asset-manager/ rel>here</a></p>
+</div><div class=post-footer id=post-footer>
+<div class=post-info><div class=post-info-tag><span><a href=/tags/game-engine/>Game Engine</a>
+</span></div><div class=post-info-line><div class=post-info-mod>
+<span>Updated on 2021-07-31</span>
+</div><div class=post-info-mod></div>
+</div><div class=post-info-share>
+<span><a href=javascript:void(0); title="Share on Twitter" data-sharer=twitter data-url=https://mo7sen.github.io/projects/evol/evol/ data-title=evol data-via=mo7sener data-hashtags="Game Engine"><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="Share on Facebook" data-sharer=facebook data-url=https://mo7sen.github.io/projects/evol/evol/ data-hashtag="Game Engine"><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="Share on Reddit" data-sharer=reddit data-url=https://mo7sen.github.io/projects/evol/evol/><i class="fab fa-reddit fa-fw"></i></a></span>
+</div></div><div class=post-nav><a href=/projects/evol/modules/asset-manager/ class=prev rel=prev title=evol-assetmanager><i class="fas fa-angle-left fa-fw"></i>Previous Post</a>
+<a href=/projects/zwatch/zwatch/ class=next rel=next title=Zwatch>Next Post<i class="fas fa-angle-right fa-fw"></i></a></div></div>
+</div></article></div>
+</main>
+<footer class=footer><div class=footer-container><div class=footer-line itemscope itemtype=http://schema.org/CreativeWork><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2021</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://mo7sen.github.io/about>Robear Selwans</a></span></div>
+</div>
+</footer>
+</div>
+<div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title="Back to Top">
+<i class="fas fa-chevron-up fa-fw"></i>
+</a></div><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script src=/lib/lazysizes/lazysizes.min.js></script><script src=/lib/clipboard/clipboard.min.js></script><script src=/lib/sharer/sharer.min.js></script><script>window.config={code:{copyTitle:"Copy to clipboard",maxShownLines:10},comment:{}}</script><script src=/js/theme.min.js></script></body></html>
