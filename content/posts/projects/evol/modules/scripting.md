@@ -8,7 +8,7 @@ tags: ["Game Engine"]
 
 toc: true
 
-featuredImagePreview: "/evol/images/logo.png"
+hiddenFromHomePage: true
 
 draft: false
 ---
@@ -21,7 +21,7 @@ need to run for entities that have those script functions without needing to
 iterate over all entities to check.
 
 To make extending this functionality substantially simpler, a lot of 
-pre-processor macros were added to that file so that adding a new system for a 
+preprocessor macros were added to that file so that adding a new system for a 
 new script function is just a matter of adding an extra line to the file and it 
 should handle everything else. For example, adding an `on_fixedupdate` function 
 to the scripting module is as simple as changing this:
@@ -65,10 +65,17 @@ ScriptHandle playerScript = Script->new("PlayerScript", loadedScript);
 Script->addToEntity(player, playerScript);
 ```
 
-Having extensible script callbacks and the ability to attach scripts entities 
-is an important thing but now we have no way of exposing module-specific 
-functions to those scripts; which is why the `ScriptInterface` namespace was 
-created. This namespace’s main purpose was to allow modules to register 
+Then came the problem of exposing C structs and functions in a not-too-verbose
+way and making this operation happen per module at runtime. Luckily, we found 
+orangeduck's [LuaAutoC](https://github.com/orangeduck/LuaAutoC) which did just
+that; it allowed the quick and automatic exposure of functions and structs from
+C to Lua with minimum friction. Unfortunately, to make the API less verbose,
+most of the library's API was preprocessor-based and wouldn't work across DLL
+boundaries. To fix that, we made a [fork](https://github.com/evol3d/luaautoc)
+in which we made major API changes to allow this functionality to work using
+only functions and thus be able to use from all the modules. This was then
+exposed through the `ScriptInterface` namespace which is in the scripting
+module. This namespace’s main purpose was to allow modules to register 
 whatever they want to expose to modules, like: types, functions, structs, ..etc. 
 The `ScriptInterface` consisted of the following operations:
 
@@ -105,7 +112,7 @@ prefab = loadPrefab(path)
 ```
 
 After all of that was done, it was time for the module to move on from being a 
-singleton and start to become more instantiatable. This is where a script 
+singleton and start to become more instantiate-able. This is where a script 
 context comes into play. A script context is a type that we defined that 
 contained some info about itself and the Lua VM that it contains. The fact that 
 each context had its own VM had solid reasons; the most important one is that 
@@ -129,3 +136,4 @@ luadbg helped us by making a debugger kick in whenever occurs in a script (or
 whenever we call a function that signals the debugger) so that we can inspect 
 the state of the Lua VM at that specific point in time.
 
+{{< figure src="/evol/images/scripting/debugger.png" alt="Script Debugging Diagram" title="Figure 1: luadbg in action" >}}
