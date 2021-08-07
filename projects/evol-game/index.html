@@ -1,0 +1,417 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=robots content="noodp">
+<title>evol-game - Robear Selwans' Portfolio</title><meta name=description content="The evol game engine's game module."><meta property="og:title" content="evol-game">
+<meta property="og:description" content="The evol game engine's game module.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mo7sen.github.io/projects/evol-game/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-07-31T13:25:00+00:00">
+<meta property="article:modified_time" content="2021-07-31T13:25:00+00:00">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="evol-game">
+<meta name=twitter:description content="The evol game engine's game module.">
+<meta name=application-name content="Robear Selwans' Portfolio">
+<meta name=apple-mobile-web-app-title content="Robear Selwans' Portfolio"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://mo7sen.github.io/projects/evol-game/><link rel=prev href=https://mo7sen.github.io/projects/evol-renderer/><link rel=next href=https://mo7sen.github.io/projects/evol-core/><link rel=stylesheet href=/css/page.min.css><link rel=stylesheet href=/css/home.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"evol-game","inLanguage":"en-us","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/mo7sen.github.io\/projects\/evol-game\/"},"genre":"posts","keywords":"Game Engine","wordcount":1622,"url":"https:\/\/mo7sen.github.io\/projects\/evol-game\/","datePublished":"2021-07-31T13:25:00+00:00","dateModified":"2021-07-31T13:25:00+00:00","publisher":{"@type":"Organization","name":"Robear Selwans"},"author":{"@type":"Person","name":"Robear Selwans"},"description":"The evol game engine's game module."}</script></head><body data-header-desktop=fixed data-header-mobile=auto><script>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':''==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:''==='dark')&&document.body.setAttribute('theme','dark')</script>
+<div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title="Robear Selwans' Portfolio">Robear Selwans' Portfolio</a>
+</div>
+<div class=menu>
+<div class=menu-inner><a class=menu-item href=/about/> About </a><a class=menu-item href=/categories/project/> Projects </a><a class=menu-item href=/categories/post/> Posts </a><a class=menu-item href=/categories/> Categories </a><a class=menu-item href=/tags/> Tags </a><span class="menu-item delimiter"></span><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
+<i class="fas fa-adjust fa-fw"></i>
+</a>
+</div>
+</div>
+</div>
+</header><header class=mobile id=header-mobile>
+<div class=header-container>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title="Robear Selwans' Portfolio">Robear Selwans' Portfolio</a>
+</div>
+<div class=menu-toggle id=menu-toggle-mobile>
+<span></span><span></span><span></span>
+</div>
+</div>
+<div class=menu id=menu-mobile><a class=menu-item href=/about/ title>About</a><a class=menu-item href=/categories/project/ title>Projects</a><a class=menu-item href=/categories/post/ title>Posts</a><a class=menu-item href=/categories/ title>Categories</a><a class=menu-item href=/tags/ title>Tags</a><div class=menu-item><a href=javascript:void(0); class=theme-switch title="Switch Theme">
+<i class="fas fa-adjust fa-fw"></i>
+</a>
+</div></div>
+</div>
+</header><main class=main>
+<div class=container><div class=toc id=toc-auto>
+<h2 class=toc-title>Contents</h2>
+<div class=toc-content id=toc-content-auto></div>
+</div><article class="page single" data-toc=disable><div class=single-card><h2 class="single-title animated flipInX">evol-game</h2><div class=post-meta>
+<div class=post-meta-line><span class=post-author><a href=https://mo7sen.github.io/about title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw"></i>Robear Selwans</a></span>&nbsp;<span class=post-category>published in <a href=/categories/project/><i class="far fa-folder fa-fw"></i>Project</a></span></div>
+<div class=post-meta-line><span><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-07-31>2021-07-31</time></span>&nbsp;<span><i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1622 words</span>&nbsp;
+<span><i class="far fa-clock fa-fw"></i>&nbsp;8 minutes</span>&nbsp;</div>
+</div>
+<hr><div class="details toc" id=toc-static data-kept>
+<div class="details-summary toc-title">
+<span>Contents</span>
+<span><i class="details-icon fas fa-angle-right"></i></span>
+</div>
+<div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents></nav></div>
+</div><div class=content id=content><p>The game module is where most of the fun actually happens; the game module
+attempts to use the other modules to make the program behave as a game engine.
+Through the combination of the world module, the input module, the physics
+module, the script module, the asset module and the rendering module, the game
+module manages to connect all these modules together to make an actual game that
+runs.</p>
+<p>First of all is the scene representation; in the game module, a scene is an
+isolated component that cannot interact with other scenes. To fulfill that
+isolation, instances from data needed to be used so that different scenes don’t
+share the same storage. That’s why the Scene type ended up being mainly a
+combination of a physics world, an ECS world, and a scripting context. A scene
+consists of more data that it might need when running, like the ID of the active
+camera, but those are not something that needs to be talked about as they are
+implementation details rather than design choices.</p>
+<p>The scenes are stored in a map with their names as identifiers. This allows for
+easy referencing of scenes through their names. This map is then cleared with
+all the scenes destroyed at the end of execution when the game module is
+unloaded from memory. The active scene is also stored in the global data of the
+game module since it’ll mostly be the one to be used for any operations and thus
+having it cached will reduce any overhead from hashing the scene name for each
+operation. Each frame, the active scene is updated and, in turn, updates all of
+its inner structures (the ECS world, the physics world, and the scripting
+context). Whenever a new scene is created, it initializes its internal
+structures so that it’s ready to progress when needed. Also, it checks to see
+whether there is an already active scene or not; if there is no active scene,
+then the newly created scene is set to be active.</p>
+<p>The game module also provides the base definition for a game object; whenever a
+new object is created, a name and a transform component are attached to it as
+that is the bare minimum requirement for an object to be considered a game
+object (to be named and to have a transform). Having a name allows the objects
+to have an identifier that they can be easily referenced with whenever that
+specific object is needed.</p>
+<p>The transform component was a bit tricky to come up with. We needed a way to
+have the transform be simple to change in a readable manner for scripting (using
+position, Euler angles, and scale) but we also didn&rsquo;t want to need to
+recalculate the world-space transform matrix whenever we need it by walking up
+the scene hierarchy until we reach the root. That’s why we decided to use a
+dirty flag for the transform. The idea is simple, the transform component
+contains the local position, local rotation, local scale, and world-space
+transform matrix of the entity. However, it also contains a dirty flag that is
+set whenever any of the local transform parameters are changed, signifying that
+the world-space transform matrix needs to be recalculated.</p>
+<p>This means that a simple <code>setPosition</code> operation goes as follows:</p>
+<ul>
+<li><em>Set the local position of the entity</em></li>
+<li><em>Set dirty bit for entity (and recursively to all its children)</em></li>
+</ul>
+<p>The dirty bit is set for children as their world-space transform will change
+when that of the parent is. Notice that the world-space matrix is not updated
+yet; it will only get updated when a module asks for it. This helps make
+multiple local transform changes more efficient as it makes subsequent changes
+to the local transform not affect the world transform until needed. A sample
+<code>getWorldTransform</code> is as follows:</p>
+<ul>
+<li><em>Get transform component</em></li>
+<li><em>Check if dirty bit is set</em></li>
+<li><em>If bit is set, then update the world matrix (and in turn any dirty parents)</em></li>
+<li><em>Return the world matrix</em></li>
+</ul>
+<p>The way the world transform of an object is updated is by checking the dirty
+flag first. If the dirty flag is not set, then the transform is already up to
+date. However, if the dirty bit is set, then a local transform matrix is
+calculated and is transformed with the parent’s world transform matrix. If the
+parent’s dirty bit flag is set, then it is updated and this operation keeps on
+moving up the hierarchy until a non-dirty transform is found and is used to
+update the children down the hierarchy until the wanted transform is up to date.</p>
+<p>Also, a camera type is provided by the game module to allow the ease the use of
+cameras by providing more utility functions. A camera component is available so
+that cameras can be dealt with as normal entities with an extra component. The
+camera component contains the projection matrix, the view matrix, and some
+tune-able camera parameters that can be set through utility functions. An <code>OnSet</code>
+listener is added on the camera component so that whenever a tune-able parameter
+is changed, the projection matrix is recalculated to stay up to date. As for the
+calculation of the view matrix, it is simply calculated by getting the inverse
+of the world-space transform matrix of the camera. Whenever a new camera is
+created, the scene is checked to see whether there is an active camera; if
+there’s no active camera, then the newly created one is set to be active.</p>
+<p>For the scripting API, a lot of functions are exposed to ease scripting and make it a lot easier for scripts to do simple operations. Some of the exposed functions are:</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ev_object_getname</code></td>
+<td>Used with Lua’s meta-tables to allow the reading of an entity’s name by doing <code>this.name</code></td>
+</tr>
+<tr>
+<td><code>ev_object_getposition</code></td>
+<td>Used with Lua’s meta-tables to allow the reading of an entity’s position using <code>this.position</code> which returns the exposed <code>Vec3</code> type</td>
+</tr>
+<tr>
+<td><code>ev_object_setposition</code></td>
+<td>Used with Lua’s meta-tables to allow the writing of an entity’s position using <code>this.position</code> which takes a <code>Vec3</code></td>
+</tr>
+<tr>
+<td><code>ev_object_getworldposition</code></td>
+<td>Used with Lua’s meta-tables to allow the reading of an entity’s global position using <code>this.worldPosition</code> which returns a <code>Vec3</code></td>
+</tr>
+<tr>
+<td><code>ev_object_seteuler</code></td>
+<td>Used with Lua’s meta-tables to allow the writing of an entity’s rotation using <code>this.eulerAngles</code> which takes an Euler angle represented by a <code>Vec3</code></td>
+</tr>
+<tr>
+<td><code>ev_object_getforwardvec</code></td>
+<td>Used with Lua’s meta-tables to allow the reading of an entity’s global forward direction using this.forward which returns a <code>Vec3</code></td>
+</tr>
+<tr>
+<td><code>ev_object_getrightvec</code></td>
+<td>Used with Lua’s meta-tables to allow the reading of an entity’s global right direction using this.right which returns a <code>Vec3</code></td>
+</tr>
+<tr>
+<td><code>ev_object_getupvec</code></td>
+<td>Used with Lua’s meta-tables to allow the reading of an entity’s global upward direction using this.up which returns a <code>Vec3</code></td>
+</tr>
+<tr>
+<td><code>ev_game_setactivescene</code></td>
+<td>Wrapped in a Lua function called <code>gotoScene(sceneName)</code> which takes a scene name and switches to that scene</td>
+</tr>
+<tr>
+<td><code>ev_scene_getobject</code></td>
+<td>Wrapped in a Lua function called <code>getObject(objectPath)</code> which takes the path of an object (including its parents’ names) and returns that object</td>
+</tr>
+<tr>
+<td><code>ev_sceneloader_loadprefab</code></td>
+<td>Wrapped in a Lua function called <code>loadPrefab(filePath)</code> which takes the path of a prefab in the file-system, loads into the scene and returns that the object to the script</td>
+</tr>
+</tbody>
+</table>
+<p>Now that the scene is pretty much operational, the thing that was left was to
+allow the scenes to be loaded from scene files that are more readable than plain
+code and don’t require recompilation for every single change made to the scene.
+The scene format that we came up with was JSON-based to ensure high readability
+and ease of changing scene parameters. A typical scene looks like the following:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
+  <span class=nt>&#34;id&#34;</span><span class=p>:</span><span class=s2>&#34;MainScene&#34;</span><span class=p>,</span>
+  <span class=nt>&#34;nodes&#34;</span><span class=p>:</span> <span class=p>[</span>
+    <span class=err>...</span>
+  <span class=p>],</span>
+  <span class=nt>&#34;materials&#34;</span><span class=p>:</span> <span class=p>[</span>
+    <span class=err>...</span>
+  <span class=p>],</span>
+  <span class=nt>&#34;pipelines&#34;</span><span class=p>:</span> <span class=p>[</span>
+    <span class=err>...</span>
+  <span class=p>],</span>
+  <span class=nt>&#34;activeCamera&#34;</span><span class=p>:</span> <span class=s2>&#34;Camera&#34;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>In the scene file shown above, both the “materials” and “pipelines” list are
+irrelevant for the game module. These lists are passed as-is to the rendering
+module so that it can parse them as it sees fit. The fact that the game module
+doesn&rsquo;t care about what’s in those lists makes it easier for the rendering
+module to update what it expects from that JSON without the game module needing
+to mirror those changes.</p>
+<p>As for the nodes, they’re a structure that contains a node’s name, its
+components and its children. A typical node looks like the following:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
+  <span class=nt>&#34;id&#34;</span><span class=p>:</span> <span class=s2>&#34;Box&#34;</span><span class=p>,</span>
+  <span class=nt>&#34;components&#34;</span><span class=p>:</span> <span class=p>[</span>
+    <span class=err>...</span>
+  <span class=p>],</span>
+  <span class=nt>&#34;children&#34;</span><span class=p>:</span> <span class=p>[</span>
+    <span class=err>...</span>
+  <span class=p>]</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>The children list is basically other nodes that are defined the same way
+recursively until leaf nodes are found that have no children and, in turn, have
+no children list. As for the components list, there are a few components that
+are exposed to the scene file, those components are:</p>
+<ul>
+<li>Transform Component</li>
+</ul>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
+  <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;TransformComponent&#34;</span><span class=p>,</span>
+  <span class=nt>&#34;position&#34;</span><span class=p>:</span> <span class=p>[</span><span class=mf>0.0</span><span class=p>,</span> <span class=mf>0.0</span><span class=p>,</span> <span class=mf>0.0</span><span class=p>],</span>
+  <span class=nt>&#34;rotation&#34;</span><span class=p>:</span> <span class=p>[</span><span class=mf>0.0</span><span class=p>,</span> <span class=mf>90.0</span><span class=p>,</span> <span class=mf>0.0</span><span class=p>],</span>
+  <span class=nt>&#34;scale&#34;</span><span class=p>:</span> <span class=p>[</span><span class=mf>1.0</span><span class=p>,</span> <span class=mf>1.0</span><span class=p>,</span> <span class=mf>1.0</span><span class=p>]</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Script Component</li>
+</ul>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
+  <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;ScriptComponent&#34;</span><span class=p>,</span>
+  <span class=nt>&#34;script_name&#34;</span><span class=p>:</span> <span class=s2>&#34;BoxScript&#34;</span><span class=p>,</span>
+  <span class=nt>&#34;script_path&#34;</span><span class=p>:</span> <span class=s2>&#34;scripts://MainScene/box.lua&#34;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Camera Component</li>
+</ul>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
+  <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;CameraComponent&#34;</span><span class=p>,</span>
+  <span class=nt>&#34;view&#34;</span><span class=p>:</span> <span class=s2>&#34;Perspective&#34;</span><span class=p>,</span>
+  <span class=nt>&#34;fov&#34;</span><span class=p>:</span> <span class=mi>90</span><span class=p>,</span>
+  <span class=nt>&#34;near&#34;</span><span class=p>:</span> <span class=mf>0.001</span><span class=p>,</span>
+  <span class=nt>&#34;far&#34;</span><span class=p>:</span> <span class=mi>1000</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Rigidbody Component</li>
+</ul>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
+  <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;RigidbodyComponent&#34;</span><span class=p>,</span>
+  <span class=nt>&#34;rigidbodyType&#34;</span><span class=p>:</span> <span class=s2>&#34;Dynamic&#34;</span><span class=p>,</span>
+  <span class=nt>&#34;mass&#34;</span><span class=p>:</span> <span class=mf>1.0</span><span class=p>,</span>
+  <span class=nt>&#34;restitution&#34;</span><span class=p>:</span> <span class=mf>1.0</span><span class=p>,</span>
+  <span class=nt>&#34;collisionShape&#34;</span><span class=p>:</span> <span class=p>{</span>
+    <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;Box&#34;</span><span class=p>,</span>
+    <span class=nt>&#34;halfExtents&#34;</span><span class=p>:</span> <span class=p>[</span><span class=mf>1.0</span><span class=p>,</span> <span class=mf>1.0</span><span class=p>,</span> <span class=mf>1.0</span><span class=p>]</span>
+  <span class=p>}</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Render Component</li>
+</ul>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
+  <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;RenderComponent&#34;</span><span class=p>,</span>
+  <span class=nt>&#34;material&#34;</span><span class=p>:</span> <span class=s2>&#34;WhiteMaterial&#34;</span><span class=p>,</span>
+  <span class=nt>&#34;mesh&#34;</span><span class=p>:</span> <span class=s2>&#34;assets://meshes/box.mesh&#34;</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Light Component</li>
+</ul>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
+  <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;LightComponent&#34;</span><span class=p>,</span>
+  <span class=nt>&#34;color&#34;</span><span class=p>:</span> <span class=p>[</span><span class=mf>1.0</span><span class=p>,</span> <span class=mf>1.0</span><span class=p>,</span> <span class=mf>1.0</span><span class=p>,</span> <span class=mf>1.0</span><span class=p>],</span>
+  <span class=nt>&#34;intensity&#34;</span><span class=p>:</span> <span class=mi>10</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Prefab files are also JSON files. Prefabs have the same structure as normal
+nodes with the sole difference that prefabs are stored in their own files while
+nodes need to be stored inside a scene. Prefabs can be loaded using the same
+procedures that the scene uses when loading the nodes.</p>
+</div><div class=post-footer id=post-footer>
+<div class=post-info><div class=post-info-tag><span><a href=/tags/game-engine/>Game Engine</a>
+</span></div><div class=post-info-line><div class=post-info-mod>
+<span>Updated on 2021-07-31</span>
+</div><div class=post-info-mod></div>
+</div><div class=post-info-share>
+<span><a href=javascript:void(0); title="Share on Twitter" data-sharer=twitter data-url=https://mo7sen.github.io/projects/evol-game/ data-title=evol-game data-via=mo7sener data-hashtags="Game Engine"><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="Share on Facebook" data-sharer=facebook data-url=https://mo7sen.github.io/projects/evol-game/ data-hashtag="Game Engine"><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="Share on Reddit" data-sharer=reddit data-url=https://mo7sen.github.io/projects/evol-game/><i class="fab fa-reddit fa-fw"></i></a></span>
+</div></div><div class=post-nav><a href=/projects/evol-renderer/ class=prev rel=prev title=evol-renderer><i class="fas fa-angle-left fa-fw"></i>Previous Post</a>
+<a href=/projects/evol-core/ class=next rel=next title=evol-core>Next Post<i class="fas fa-angle-right fa-fw"></i></a></div></div>
+</div></article></div>
+</main>
+<footer class=footer><div class=footer-container><div class=footer-line itemscope itemtype=http://schema.org/CreativeWork><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2021</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://mo7sen.github.io/about>Robear Selwans</a></span></div>
+</div>
+</footer>
+</div>
+<div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title="Back to Top">
+<i class="fas fa-chevron-up fa-fw"></i>
+</a></div><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script src=/lib/lazysizes/lazysizes.min.js></script><script src=/lib/clipboard/clipboard.min.js></script><script src=/lib/sharer/sharer.min.js></script><script>window.config={code:{copyTitle:"Copy to clipboard",maxShownLines:10},comment:{}}</script><script src=/js/theme.min.js></script></body></html>
