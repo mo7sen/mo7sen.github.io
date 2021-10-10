@@ -7,6 +7,8 @@ tags: ["Graphics"]
 
 draft: false
 featuredImagePreview: "improvgfx/preview.png"
+
+description: "Offline Rasterizer"
 ---
 
 ## Introduction
