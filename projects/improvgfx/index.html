@@ -1,0 +1,224 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=robots content="noodp">
+<title>ImprovGFX - Robear Selwans' Portfolio</title><meta name=description content><meta property="og:title" content="ImprovGFX">
+<meta property="og:description" content="Introduction For the “Computer Graphics” course, it was announced from the beginning of the course that the final project will be a scene rendered using OpenGL or WebGL. However, for someone like me who’s been introduced to what graphics programming is (with no actual experience), I thought it would be way cooler to build my own offline renderer. The only reason I was confident enough to ask the professor if I could make this project instead is because of ssloy’s tiny-renderer tutorial series.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mo7sen.github.io/projects/improvgfx/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-07-31T13:25:24+00:00">
+<meta property="article:modified_time" content="2021-07-31T13:25:24+00:00">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="ImprovGFX">
+<meta name=twitter:description content="Introduction For the “Computer Graphics” course, it was announced from the beginning of the course that the final project will be a scene rendered using OpenGL or WebGL. However, for someone like me who’s been introduced to what graphics programming is (with no actual experience), I thought it would be way cooler to build my own offline renderer. The only reason I was confident enough to ask the professor if I could make this project instead is because of ssloy’s tiny-renderer tutorial series.">
+<meta name=application-name content="Robear Selwans' Portfolio">
+<meta name=apple-mobile-web-app-title content="Robear Selwans' Portfolio"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://mo7sen.github.io/projects/improvgfx/><link rel=prev href=https://mo7sen.github.io/projects/rustracer/><link rel=stylesheet href=/css/page.min.css><link rel=stylesheet href=/css/home.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"ImprovGFX","inLanguage":"en-us","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/mo7sen.github.io\/projects\/improvgfx\/"},"genre":"posts","keywords":"Graphics","wordcount":935,"url":"https:\/\/mo7sen.github.io\/projects\/improvgfx\/","datePublished":"2021-07-31T13:25:24+00:00","dateModified":"2021-07-31T13:25:24+00:00","publisher":{"@type":"Organization","name":"Robear Selwans"},"author":{"@type":"Person","name":"Robear Selwans"},"description":""}</script></head><body data-header-desktop=fixed data-header-mobile=auto><script>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':''==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:''==='dark')&&document.body.setAttribute('theme','dark')</script>
+<div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title="Robear Selwans' Portfolio">Robear Selwans' Portfolio</a>
+</div>
+<div class=menu>
+<div class=menu-inner><a class=menu-item href=/about/> About </a><a class=menu-item href=/categories/project/> Projects </a><a class=menu-item href=/categories/post/> Posts </a><a class=menu-item href=/categories/> Categories </a><a class=menu-item href=/tags/> Tags </a><span class="menu-item delimiter"></span><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
+<i class="fas fa-adjust fa-fw"></i>
+</a>
+</div>
+</div>
+</div>
+</header><header class=mobile id=header-mobile>
+<div class=header-container>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title="Robear Selwans' Portfolio">Robear Selwans' Portfolio</a>
+</div>
+<div class=menu-toggle id=menu-toggle-mobile>
+<span></span><span></span><span></span>
+</div>
+</div>
+<div class=menu id=menu-mobile><a class=menu-item href=/about/ title>About</a><a class=menu-item href=/categories/project/ title>Projects</a><a class=menu-item href=/categories/post/ title>Posts</a><a class=menu-item href=/categories/ title>Categories</a><a class=menu-item href=/tags/ title>Tags</a><div class=menu-item><a href=javascript:void(0); class=theme-switch title="Switch Theme">
+<i class="fas fa-adjust fa-fw"></i>
+</a>
+</div></div>
+</div>
+</header><main class=main>
+<div class=container><div class=toc id=toc-auto>
+<h2 class=toc-title>Contents</h2>
+<div class=toc-content id=toc-content-auto></div>
+</div><article class="page single" data-toc=disable><div class=single-card><h2 class="single-title animated flipInX">ImprovGFX</h2><div class=post-meta>
+<div class=post-meta-line><span class=post-author><a href=https://mo7sen.github.io/about title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw"></i>Robear Selwans</a></span>&nbsp;<span class=post-category>published in <a href=/categories/project/><i class="far fa-folder fa-fw"></i>Project</a></span></div>
+<div class=post-meta-line><span><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-07-31>2021-07-31</time></span>&nbsp;<span><i class="fas fa-pencil-alt fa-fw"></i>&nbsp;935 words</span>&nbsp;
+<span><i class="far fa-clock fa-fw"></i>&nbsp;5 minutes</span>&nbsp;</div>
+</div>
+<hr><div class="details toc" id=toc-static data-kept>
+<div class="details-summary toc-title">
+<span>Contents</span>
+<span><i class="details-icon fas fa-angle-right"></i></span>
+</div>
+<div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
+<ul>
+<li><a href=#introduction>Introduction</a></li>
+<li><a href=#limitations>Limitations</a></li>
+<li><a href=#stuff-i-made-differently>Stuff I made differently</a></li>
+<li><a href=#optimization>Optimization</a>
+<ul>
+<li><a href=#multi-threading>Multi-threading</a></li>
+<li><a href=#going-even-further>Going even further</a></li>
+</ul>
+</li>
+<li><a href=#gallery>Gallery</a></li>
+</ul>
+</nav></div>
+</div><div class=content id=content><h2 id=introduction>Introduction</h2>
+<p>For the “Computer Graphics” course, it was announced from the beginning of the course that the final project will be a scene rendered using OpenGL or WebGL. However, for someone like me who’s been introduced to what graphics programming is (with no actual experience), I thought it would be way cooler to build my own offline renderer. The only reason I was confident enough to ask the professor if I could make this project instead is because of ssloy’s tiny-renderer tutorial series. Luckily, the professor agreed.</p>
+<h2 id=limitations>Limitations</h2>
+<p>This is considered the first graphics project that I ever took part in. This can be seen by the amount of weird limitations that it has. For example:</p>
+<ul>
+<li>Each model can have one mesh with a maximum of one texture mapped onto it</li>
+<li>No runtime configurable variables (which meant each change to the scene setup required recompiling the whole thing)</li>
+<li>No transform hierarchies in the scene</li>
+<li>Only supports the <code>obj</code> format for meshes and the <code>tga</code> format for images (those were the ones that the tutorial provided support for)</li>
+</ul>
+<h2 id=stuff-i-made-differently>Stuff I made differently</h2>
+<p>Luckily, as someone who can’t just follow a tutorial blindly, I added my own stuff to the implementation:</p>
+<ul>
+<li>Instead of rendering to an image that is stored on the disk, the scene is rendered to a WIN32 window so that interactivity is not impossible (I actually used that as a chance to learn a lot about eh WIN32 API as it was the first time I ever used it)</li>
+<li>The camera was dynamic rather than static and it had the same control scheme as an FPS camera (WASD for movement, mouse for changing angle)</li>
+</ul>
+<h2 id=optimization>Optimization</h2>
+<p>By then, the performance wasn&rsquo;t too bad. However, since I wanted to add more
+complex scenes later on, I had to make sure that the renderer could handle
+scenes more efficiently.</p>
+<h3 id=multi-threading>Multi-threading</h3>
+<p>The first thing I tried doing is to use multithreading to split the
+rasterization of the scene over multiple threads. Out of sheer laziness, I
+decided to use OpenMP for the threading insteading of adding the threads myself.
+The parallelism was added over the loop that iterated over the faces to
+rasterize them and then run the fragment shader, thus effectively allowing
+concurrency on the face level.</p>
+<h3 id=going-even-further>Going even further</h3>
+<p>While this provided a massive boost to the performance and allowed rendering single model scenes at an interactive rate, the goal was to render a more complex scene and thus decided that the CPU wasn’t fast enough for what I wanted and that I will need to push some work on the GPU.</p>
+<p>This was also my first time ever interacting with the GPU as a developer, which made it a bit intimidating at first. I first started by deciding what is the API that I would use. As someone who didn’t know about the existence of OpenGL compute shaders at the time, and didn’t have an nvidia GPU, the only option I had was none other than OpenCL.</p>
+<p>After a few days of fiddling with OpenCL, I managed to migrate the vertex shader stage to the GPU. Sadly, because I wasn’t using high-poly models, the performance boost, which was noticeable, didn’t seem like it was worth the hassle. A couple more days and the fragment shader was also migrated, and the performance boost was so huge that it didn’t seem right. A scene that I used as a benchmark managed to go from 2 FPS (with a full CPU implementation) to a whooping 90 FPS (with shader stages being executed on the GPU).</p>
+<p>By the time I reached this point, I was notified that someone else would be my teammate in this project. As someone who was developing with zero concern about code cleanliness or consistency, that was a major problem. So I agreed with them on the following: I would abstract the scene building functionality, and they’d build a scene that we can use to showcase the renderer.</p>
+<p>Note: While, at the time I was creating it, I thought the new simplified API was quite decent, looking back at it now, I can’t help but feel a bit weirded out by how stupid it was. No regrets, though.</p>
+<p>I ended up needing to create the scene myself, on the night before the final submission, so I just went and found some free models, slapped them together with a wavy vertex shader and called it a day. The code written to create such a scene is:</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=cp>#include</span> <span class=cpf>&#34;improv_gfx.h&#34;</span><span class=cp>
+</span><span class=cp></span>
+<span class=n>Model</span> <span class=o>*</span><span class=n>octopus</span><span class=p>,</span> <span class=o>*</span><span class=n>ocean</span><span class=p>,</span> <span class=o>*</span><span class=n>sharky</span><span class=p>;</span>
+
+<span class=c1>// Setup function is run once for initialization
+</span><span class=c1></span><span class=kt>void</span> <span class=nf>Setup</span><span class=p>()</span> <span class=p>{</span>
+	<span class=n>octopus</span> <span class=o>=</span> <span class=k>new</span> <span class=n>Model</span><span class=p>(</span><span class=s>&#34;octojet.obj&#34;</span><span class=p>,</span> <span class=mi>1</span><span class=p>);</span>
+	<span class=n>octopus</span><span class=o>-&gt;</span><span class=n>scale</span><span class=p>(</span><span class=n>Vec3f</span><span class=p>(</span><span class=mi>4</span><span class=p>,</span> <span class=mi>4</span><span class=p>,</span> <span class=mi>4</span><span class=p>));</span>
+	<span class=n>octopus</span><span class=o>-&gt;</span><span class=n>ApplyTransform</span><span class=p>();</span>
+	<span class=n>AddModel</span><span class=p>(</span><span class=n>octopus</span><span class=p>);</span>
+
+	<span class=n>ocean</span> <span class=o>=</span> <span class=k>new</span> <span class=n>Model</span><span class=p>(</span><span class=s>&#34;ocean.obj&#34;</span><span class=p>,</span> <span class=mi>1</span><span class=p>);</span>
+	<span class=n>ocean</span><span class=o>-&gt;</span><span class=n>scale</span><span class=p>(</span><span class=n>Vec3f</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>1</span><span class=p>));</span>
+	<span class=n>ocean</span><span class=o>-&gt;</span><span class=n>ApplyTransform</span><span class=p>();</span>
+	<span class=n>AddModel</span><span class=p>(</span><span class=n>ocean</span><span class=p>);</span>
+
+	<span class=n>sharky</span> <span class=o>=</span> <span class=k>new</span> <span class=n>Model</span><span class=p>(</span><span class=s>&#34;sharky.obj&#34;</span><span class=p>,</span> <span class=mi>0</span><span class=p>);</span>
+	<span class=n>sharky</span><span class=o>-&gt;</span><span class=n>scale</span><span class=p>(</span><span class=n>Vec3f</span><span class=p>(</span><span class=mf>0.02</span><span class=p>,</span> <span class=mf>0.02</span><span class=p>,</span> <span class=mf>0.02</span><span class=p>));</span>
+	<span class=n>sharky</span><span class=o>-&gt;</span><span class=n>translate</span><span class=p>(</span><span class=n>Vec3f</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mf>0.05</span><span class=p>,</span> <span class=mi>0</span><span class=p>));</span>
+	<span class=n>sharky</span><span class=o>-&gt;</span><span class=n>ApplyTransform</span><span class=p>();</span>
+	<span class=n>AddModel</span><span class=p>(</span><span class=n>sharky</span><span class=p>);</span>
+<span class=p>}</span>
+
+<span class=c1>// Draw function is run every frame
+</span><span class=c1></span><span class=kt>void</span> <span class=nf>Draw</span><span class=p>()</span> <span class=p>{</span>
+	<span class=n>sharky</span><span class=o>-&gt;</span><span class=n>translate</span><span class=p>(</span><span class=n>Vec3f</span><span class=p>(</span><span class=n>sharky</span><span class=o>-&gt;</span><span class=n>Translation</span><span class=p>[</span><span class=mi>0</span><span class=p>][</span><span class=mi>3</span><span class=p>]</span> <span class=o>+</span> <span class=mf>0.01</span><span class=o>*</span><span class=n>cos</span><span class=p>(</span><span class=n>TIME</span><span class=p>),</span> <span class=n>sharky</span><span class=o>-&gt;</span><span class=n>Translation</span><span class=p>[</span><span class=mi>1</span><span class=p>][</span><span class=mi>3</span><span class=p>],</span> <span class=n>sharky</span><span class=o>-&gt;</span><span class=n>Translation</span><span class=p>[</span><span class=mi>2</span><span class=p>][</span><span class=mi>3</span><span class=p>]</span> <span class=o>+</span> <span class=mf>0.01</span><span class=o>*</span><span class=n>sin</span><span class=p>(</span><span class=n>TIME</span><span class=p>)));</span>
+	<span class=n>sharky</span><span class=o>-&gt;</span><span class=n>rotate</span><span class=p>(</span><span class=n>Vec3f</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=p>(</span><span class=n>cos</span><span class=p>(</span><span class=n>TIME</span><span class=p>)</span> <span class=o>+</span> <span class=n>sin</span><span class=p>(</span><span class=n>TIME</span><span class=p>))</span> <span class=o>*</span> <span class=o>-</span><span class=mi>90</span><span class=p>,</span> <span class=mi>0</span><span class=p>));</span>
+	<span class=n>sharky</span><span class=o>-&gt;</span><span class=n>ApplyTransform</span><span class=p>();</span>
+<span class=p>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>The scene produced by this code can be seen below.
+<div class=video>
+<iframe src=https://www.youtube.com/embed/SsyXD_qx95I allow=fullscreen title="YouTube Video"></iframe>
+</div>
+</p>
+<h2 id=gallery>Gallery</h2>
+<p>These are some images and GIFs that I found from the time of the development.</p>
+<figure><img src=/improvgfx/fps_cam.gif alt="FPS Camera"><figcaption>
+<h4>Figure 1: FPS Camera</h4>
+</figcaption>
+</figure>
+<figure><img src=/improvgfx/african_bug_1.gif alt="Weird bug 1"><figcaption>
+<h4>Figure 2: My first weird bug</h4>
+</figcaption>
+</figure>
+<figure><img src=/improvgfx/african_bug_2.gif alt="Weird bug 2"><figcaption>
+<h4>Figure 3: My second weird bug</h4>
+</figcaption>
+</figure>
+<figure><img src=/improvgfx/african_multiple_models.gif alt="Multiple Models"><figcaption>
+<h4>Figure 4: Rendering multiple models</h4>
+</figcaption>
+</figure>
+<figure><img src=/improvgfx/diablo_frag_intensity.gif alt="Playing with intensities in fragment shader"><figcaption>
+<h4>Figure 5: Playing with light intensity in fragment shader</h4>
+</figcaption>
+</figure>
+<figure><img src=/improvgfx/diablo_vertex_wavy.gif alt="Playing with vertex offsets in vertex shader"><figcaption>
+<h4>Figure 6: Playing with vertex offsets in vertex shader</h4>
+</figcaption>
+</figure>
+<figure><img src=/improvgfx/sakura_scene.png alt="Rendering a (kind of) buggy scene using OpenCL"><figcaption>
+<h4>Figure 7: Rendering a (kind of) buggy scene using OpenCL</h4>
+</figcaption>
+</figure>
+<p>The source code can be found in <a href=https://github.com/mo7sen/improvgfx target=_blank rel="noopener noreffer">this repository.</a></p>
+</div><div class=post-footer id=post-footer>
+<div class=post-info><div class=post-info-tag><span><a href=/tags/graphics/>Graphics</a>
+</span></div><div class=post-info-line><div class=post-info-mod>
+<span>Updated on 2021-07-31</span>
+</div><div class=post-info-mod></div>
+</div><div class=post-info-share>
+<span><a href=javascript:void(0); title="Share on Twitter" data-sharer=twitter data-url=https://mo7sen.github.io/projects/improvgfx/ data-title=ImprovGFX data-via=mo7sener data-hashtags=Graphics><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="Share on Facebook" data-sharer=facebook data-url=https://mo7sen.github.io/projects/improvgfx/ data-hashtag=Graphics><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="Share on Reddit" data-sharer=reddit data-url=https://mo7sen.github.io/projects/improvgfx/><i class="fab fa-reddit fa-fw"></i></a></span>
+</div></div><div class=post-nav><a href=/projects/rustracer/ class=prev rel=prev title=RusTracer><i class="fas fa-angle-left fa-fw"></i>Previous Post</a></div></div>
+</div></article></div>
+</main>
+<footer class=footer><div class=footer-container><div class=footer-line itemscope itemtype=http://schema.org/CreativeWork><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2021</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://mo7sen.github.io/about>Robear Selwans</a></span></div>
+</div>
+</footer>
+</div>
+<div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title="Back to Top">
+<i class="fas fa-chevron-up fa-fw"></i>
+</a></div><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script src=/lib/lazysizes/lazysizes.min.js></script><script src=/lib/clipboard/clipboard.min.js></script><script src=/lib/sharer/sharer.min.js></script><script>window.config={code:{copyTitle:"Copy to clipboard",maxShownLines:10},comment:{}}</script><script src=/js/theme.min.js></script></body></html>
