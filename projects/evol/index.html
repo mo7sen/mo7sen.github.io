@@ -15,7 +15,7 @@
 <meta name=application-name content="Robear Selwans' Portfolio">
 <meta name=apple-mobile-web-app-title content="Robear Selwans' Portfolio"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
 <link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://mo7sen.github.io/projects/evol/><link rel=prev href=https://mo7sen.github.io/projects/evol-architecture/><link rel=next href=https://mo7sen.github.io/projects/rustyninja/><link rel=stylesheet href=/css/page.min.css><link rel=stylesheet href=/css/home.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"evol","inLanguage":"en-us","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/mo7sen.github.io\/projects\/evol\/"},"genre":"posts","keywords":"Game Engine","wordcount":970,"url":"https:\/\/mo7sen.github.io\/projects\/evol\/","datePublished":"2021-07-31T13:25:00+00:00","dateModified":"2021-07-31T13:25:00+00:00","publisher":{"@type":"Organization","name":"Robear Selwans"},"author":{"@type":"Person","name":"Robear Selwans"},"description":"My very first game engine"}</script></head><body data-header-desktop=fixed data-header-mobile=auto><script>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':''==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:''==='dark')&&document.body.setAttribute('theme','dark')</script>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://mo7sen.github.io/projects/evol/><link rel=prev href=https://mo7sen.github.io/projects/evol-architecture/><link rel=next href=https://mo7sen.github.io/projects/rustyninja/><link rel=stylesheet href=/css/page.min.css><link rel=stylesheet href=/css/home.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"evol","inLanguage":"en-us","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/mo7sen.github.io\/projects\/evol\/"},"genre":"posts","keywords":"Game Engine","wordcount":1100,"url":"https:\/\/mo7sen.github.io\/projects\/evol\/","datePublished":"2021-07-31T13:25:00+00:00","dateModified":"2021-07-31T13:25:00+00:00","publisher":{"@type":"Organization","name":"Robear Selwans"},"author":{"@type":"Person","name":"Robear Selwans"},"description":"My very first game engine"}</script></head><body data-header-desktop=fixed data-header-mobile=auto><script>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':''==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:''==='dark')&&document.body.setAttribute('theme','dark')</script>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
 <div class=header-wrapper>
 <div class=header-title>
@@ -49,8 +49,8 @@
 <div class=toc-content id=toc-content-auto></div>
 </div><article class="page single" data-toc=disable><div class=single-card><h2 class="single-title animated flipInX">evol</h2><div class=post-meta>
 <div class=post-meta-line><span class=post-author><a href=https://mo7sen.github.io/about title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw"></i>Robear Selwans</a></span>&nbsp;<span class=post-category>published in <a href=/categories/project/><i class="far fa-folder fa-fw"></i>Project</a></span></div>
-<div class=post-meta-line><span><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-07-31>2021-07-31</time></span>&nbsp;<span><i class="fas fa-pencil-alt fa-fw"></i>&nbsp;970 words</span>&nbsp;
-<span><i class="far fa-clock fa-fw"></i>&nbsp;5 minutes</span>&nbsp;</div>
+<div class=post-meta-line><span><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-07-31>2021-07-31</time></span>&nbsp;<span><i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1100 words</span>&nbsp;
+<span><i class="far fa-clock fa-fw"></i>&nbsp;6 minutes</span>&nbsp;</div>
 </div>
 <hr><div class="details toc" id=toc-static data-kept>
 <div class="details-summary toc-title">
@@ -72,6 +72,7 @@
 <li><a href=#asset-manager>Asset Manager</a></li>
 </ul>
 </li>
+<li><a href=#demos>Demos</a></li>
 </ul>
 </nav></div>
 </div><div class=content id=content><p>A game engine built using C.</p>
@@ -114,6 +115,14 @@ two-hour read. That&rsquo;s why I&rsquo;ll just write a couple of sentences per 
 provide links for other pages that will have a more verbose description of each
 section.</p>
 <h3 id=core>Core</h3>
+<div class="details admonition note open">
+<div class="details-summary admonition-title">
+<i class="icon fas fa-pencil-alt fa-fw"></i>Note<i class="details-icon fas fa-angle-right fa-fw"></i>
+</div>
+<div class=details-content>
+<div class=admonition-content>The source code for the core can be found <a href=https://github.com/evol3d/evol target=_blank rel="noopener noreffer">here</a>.</div>
+</div>
+</div>
 <p>Since we settled on a variant of the plugin architecture, we needed some of a
 framework in which to attach the different modules This framework is the
 engine&rsquo;s core and can be found in <a href=https://github.com/evol3d/evol target=_blank rel="noopener noreffer">this</a>
@@ -138,6 +147,14 @@ they want to be easily accessible from other modules)</li>
 </ul>
 <p>For more details, feel free to look <a href=https://mo7sen.github.io/projects/evol-core/ rel>here</a></p>
 <h3 id=scripting>Scripting</h3>
+<div class="details admonition note open">
+<div class="details-summary admonition-title">
+<i class="icon fas fa-pencil-alt fa-fw"></i>Note<i class="details-icon fas fa-angle-right fa-fw"></i>
+</div>
+<div class=details-content>
+<div class=admonition-content>The source code for this module can be found <a href=https://github.com/evol3d/evol-mod-scripting target=_blank rel="noopener noreffer">here</a>.</div>
+</div>
+</div>
 <p>For the scripting language, we decided on using Lua. That&rsquo;s why we created a
 scripting module that uses the LuaJIT compiler to run scripts on game entities.
 <code>ScriptComponent</code>s, that can be attached to game entities, were created. Regular
@@ -158,6 +175,14 @@ module. This made script debugging a lot more like C debugging using gdb and,
 in turn, improved the workflow substantially.</p>
 <p>More details and code snippets can be found <a href=https://mo7sen.github.io/projects/evol-scripting/ rel>here</a></p>
 <h3 id=physics>Physics</h3>
+<div class="details admonition note open">
+<div class="details-summary admonition-title">
+<i class="icon fas fa-pencil-alt fa-fw"></i>Note<i class="details-icon fas fa-angle-right fa-fw"></i>
+</div>
+<div class=details-content>
+<div class=admonition-content>The source code for this module can be found <a href=https://github.com/evol3d/evol-mod-bullet3 target=_blank rel="noopener noreffer">here</a>.</div>
+</div>
+</div>
 <p>For the physics, we decided to use the Bullet Physics library. So the physics
 module was mostly a wrapper over bullet. We also added collision callbacks so
 that collided objects can attach scripts that execute custom behaviour when
@@ -177,8 +202,36 @@ game view.</p>
 </figcaption>
 </figure>
 <h3 id=renderer>Renderer</h3>
+<div class="details admonition note open">
+<div class="details-summary admonition-title">
+<i class="icon fas fa-pencil-alt fa-fw"></i>Note<i class="details-icon fas fa-angle-right fa-fw"></i>
+</div>
+<div class=details-content>
+<div class=admonition-content>The source code for this module can be found <a href=https://github.com/evol3d/evol-mod-renderer target=_blank rel="noopener noreffer">here</a>.</div>
+</div>
+</div>
+<p>I don’t seem to be able to write a brief about the renderer, so here’s a list of its main features:</p>
+<ul>
+<li>Vulkan</li>
+<li>Deferred Shading</li>
+<li>Bindless Architecture</li>
+<li>Metallic-roughness PBR</li>
+<li>Custom Materials using user-provided shaders</li>
+<li>Runtime shader reloading using shaderc for compilation</li>
+<li>Shadow-maps</li>
+<li>FXAA</li>
+</ul>
 <p>More details can be found <a href=https://mo7sen.github.io/projects/evol-renderer/ rel>here</a></p>
 <h3 id=game-scenes>Game Scenes</h3>
+<div class="details admonition note open">
+<div class="details-summary admonition-title">
+<i class="icon fas fa-pencil-alt fa-fw"></i>Note<i class="details-icon fas fa-angle-right fa-fw"></i>
+</div>
+<div class=details-content>
+<div class=admonition-content>The source code for this part is split into two modules. They&rsquo;re the <a href=https://github.com/evol3d/evol-mod-flecs target=_blank rel="noopener noreffer">ECS module</a> and
+the <a href=https://github.com/evol3d/evol-mod-game target=_blank rel="noopener noreffer">Game module</a>.</div>
+</div>
+</div>
 <p>For the game scenes, we decided to use the ECS architecture and thus used
 <a href=https://github.com/sandermertens/flecs target=_blank rel="noopener noreffer">flecs</a> due to how fast it is and how
 intuitive its API is. This allowed making some per-frame operations that work on
@@ -191,6 +244,14 @@ system is supposed to operate on. The most notable systems are:</p>
 </ul>
 <p>For more details about the game scene and the scene format, look <a href=https://mo7sen.github.io/projects/evol-game/ rel>here</a></p>
 <h3 id=asset-manager>Asset Manager</h3>
+<div class="details admonition note open">
+<div class="details-summary admonition-title">
+<i class="icon fas fa-pencil-alt fa-fw"></i>Note<i class="details-icon fas fa-angle-right fa-fw"></i>
+</div>
+<div class=details-content>
+<div class=admonition-content>The source code for this module can be found <a href=https://github.com/evol3d/evol-mod-assetmanager target=_blank rel="noopener noreffer">here</a>.</div>
+</div>
+</div>
 <p>The asset manager&rsquo;s main responsibility is to provide a unified way to load any
 type of asset that we support. The module was designed with extensibility in
 mind so that supporting a new asset format is as simple as creating a loader for
@@ -205,7 +266,15 @@ it and adding it to the manager&rsquo;s files. Asset loaders are already written
 </ul>
 <p>It also exposes a file-watch functionality that is used to allow hot-loading of
 scenes without needing to re-run the entire program whenever an asset changes.</p>
-<p>More details about how the asset manager operates internally can be found <a href=https://mo7sen.github.io/projects/evol-assetmanager/ rel>here</a></p></div><div class=post-footer id=post-footer>
+<p>More details about how the asset manager operates internally can be found <a href=https://mo7sen.github.io/projects/evol-assetmanager/ rel>here</a></p>
+<h2 id=demos>Demos</h2>
+<p>The following demos were submitted as the final product for the university.</p>
+<div class=video>
+<iframe src=https://www.youtube.com/embed/gLSplXjWQ5E allow=fullscreen title="YouTube Video"></iframe>
+</div>
+<div class=video>
+<iframe src=https://www.youtube.com/embed/rTaCnmm6J4Q allow=fullscreen title="YouTube Video"></iframe>
+</div></div><div class=post-footer id=post-footer>
 <div class=post-info><div class=post-info-tag><span><a href=/tags/game-engine/>Game Engine</a>
 </span></div><div class=post-info-line><div class=post-info-mod>
 <span>Updated on 2021-07-31</span>
