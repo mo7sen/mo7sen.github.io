@@ -8,7 +8,7 @@ tags: ["Game Engine"]
 
 toc: true
 
-featuredImagePreview: "/evol/images/logo.png"
+featuredImagePreview: "/evol/images/preview.png"
 
 draft: false
 ---
@@ -60,6 +60,11 @@ provide links for other pages that will have a more verbose description of each
 section.
 
 ### Core
+
+{{< admonition type=note >}} 
+The source code for the core can be found [here](https://github.com/evol3d/evol).
+{{< /admonition >}}
+
 Since we settled on a variant of the plugin architecture, we needed some of a
 framework in which to attach the different modules This framework is the
 engine's core and can be found in [this](https://github.com/evol3d/evol)
@@ -82,6 +87,11 @@ However, the most crucial features that were provided in the core were:
 For more details, feel free to look [here]({{<ref "/posts/projects/evol/modules/core.md">}})
 
 ### Scripting
+
+{{< admonition type=note >}} 
+The source code for this module can be found [here](https://github.com/evol3d/evol-mod-scripting).
+{{< /admonition >}}
+
 For the scripting language, we decided on using Lua. That's why we created a
 scripting module that uses the LuaJIT compiler to run scripts on game entities.
 `ScriptComponent`s, that can be attached to game entities, were created. Regular
@@ -104,6 +114,11 @@ in turn, improved the workflow substantially.
 More details and code snippets can be found [here]({{<ref "/posts/projects/evol/modules/scripting.md">}})
 
 ### Physics
+
+{{< admonition type=note >}} 
+The source code for this module can be found [here](https://github.com/evol3d/evol-mod-bullet3).
+{{< /admonition >}}
+
 For the physics, we decided to use the Bullet Physics library. So the physics
 module was mostly a wrapper over bullet. We also added collision callbacks so
 that collided objects can attach scripts that execute custom behaviour when
@@ -121,9 +136,31 @@ game view.
 {{< figure src="/evol/images/physics/phys_vis.png" alt="Physics Visualizer Diagram" title="Figure 1: Physics Visualizer" >}}
 
 ### Renderer
+
+{{< admonition type=note >}} 
+The source code for this module can be found [here](https://github.com/evol3d/evol-mod-renderer).
+{{< /admonition >}}
+
+
+I don’t seem to be able to write a brief about the renderer, so here’s a list of its main features:
+- Vulkan
+- Deferred Shading
+- Bindless Architecture
+- Metallic-roughness PBR
+- Custom Materials using user-provided shaders
+- Runtime shader reloading using shaderc for compilation
+- Shadow-maps
+- FXAA
+
 More details can be found [here]({{<ref "/posts/projects/evol/modules/renderer.md">}})
 
 ### Game Scenes
+
+{{< admonition type=note >}} 
+The source code for this part is split into two modules. They're the [ECS module](https://github.com/evol3d/evol-mod-flecs) and
+the [Game module](https://github.com/evol3d/evol-mod-game).
+{{< /admonition >}}
+
 For the game scenes, we decided to use the ECS architecture and thus used
 [flecs](https://github.com/sandermertens/flecs) due to how fast it is and how
 intuitive its API is. This allowed making some per-frame operations that work on
@@ -136,6 +173,11 @@ system is supposed to operate on. The most notable systems are:
 For more details about the game scene and the scene format, look [here]({{<ref "/posts/projects/evol/modules/game.md">}})
 
 ### Asset Manager
+
+{{< admonition type=note >}} 
+The source code for this module can be found [here](https://github.com/evol3d/evol-mod-assetmanager).
+{{< /admonition >}}
+
 The asset manager's main responsibility is to provide a unified way to load any
 type of asset that we support. The module was designed with extensibility in
 mind so that supporting a new asset format is as simple as creating a loader for
@@ -151,3 +193,10 @@ It also exposes a file-watch functionality that is used to allow hot-loading of
 scenes without needing to re-run the entire program whenever an asset changes.
 
 More details about how the asset manager operates internally can be found [here]({{<ref "/posts/projects/evol/modules/asset-manager.md">}})
+
+## Demos
+The following demos were submitted as the final product for the university.
+
+{{< youtube gLSplXjWQ5E >}}
+
+{{< youtube rTaCnmm6J4Q >}}
