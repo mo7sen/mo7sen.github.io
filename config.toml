@@ -85,14 +85,14 @@ version = "1.0.X"
     title = ""
     weight = 1
 
-  [[menu.main]]
-    identifier = "posts"
-    pre = ""
-    post = ""
-    name = "Posts"
-    url = "/categories/post/"
-    title = ""
-    weight = 2
+  # [[menu.main]]
+  #   identifier = "posts"
+  #   pre = ""
+  #   post = ""
+  #   name = "Posts"
+  #   url = "/categories/post/"
+  #   title = ""
+  #   weight = 2
 
   [[menu.main]]
     identifier = "tags"
@@ -111,6 +111,15 @@ version = "1.0.X"
     url = "/categories/"
     title = ""
     weight = 3
+
+  [[menu.main]]
+    identifier = "CV"
+    pre = ""
+    post = ""
+    name = "CV"
+    url = "cv.pdf"
+    title = ""
+    weight = 1
 
   [[menu.main]]
     identifier = "about"
