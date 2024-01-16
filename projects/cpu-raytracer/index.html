@@ -1,227 +1,42 @@
-<!doctype html><html lang=en-us>
-<head>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=robots content="noodp">
-<title>CPU RayTracer - Robear Selwans' Portfolio</title><meta name=description content="My second raytracer"><meta property="og:title" content="CPU RayTracer">
-<meta property="og:description" content="My second raytracer">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://mo7sen.github.io/projects/cpu-raytracer/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2021-07-31T13:25:24+00:00">
-<meta property="article:modified_time" content="2021-07-31T13:25:24+00:00">
-<meta name=twitter:card content="summary">
-<meta name=twitter:title content="CPU RayTracer">
-<meta name=twitter:description content="My second raytracer">
-<meta name=application-name content="Robear Selwans' Portfolio">
-<meta name=apple-mobile-web-app-title content="Robear Selwans' Portfolio"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
-<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://mo7sen.github.io/projects/cpu-raytracer/><link rel=prev href=https://mo7sen.github.io/projects/improvgfx/><link rel=stylesheet href=/css/page.min.css><link rel=stylesheet href=/css/home.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"CPU RayTracer","inLanguage":"en-us","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/mo7sen.github.io\/projects\/cpu-raytracer\/"},"genre":"posts","keywords":"Graphics","wordcount":810,"url":"https:\/\/mo7sen.github.io\/projects\/cpu-raytracer\/","datePublished":"2021-07-31T13:25:24+00:00","dateModified":"2021-07-31T13:25:24+00:00","publisher":{"@type":"Organization","name":"Robear Selwans"},"author":{"@type":"Person","name":"Robear Selwans"},"description":"My second raytracer"}</script></head><body data-header-desktop=fixed data-header-mobile=auto><script>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':''==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:''==='dark')&&document.body.setAttribute('theme','dark')</script>
-<div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
-<div class=header-wrapper>
-<div class=header-title>
-<a href=/ title="Robear Selwans' Portfolio">Robear Selwans' Portfolio</a>
-</div>
-<div class=menu>
-<div class=menu-inner><a class=menu-item href=/about/> About </a><a class=menu-item href=/cv.pdf> CV </a><a class=menu-item href=/categories/project/> Projects </a><a class=menu-item href=/categories/> Categories </a><a class=menu-item href=/tags/> Tags </a><span class="menu-item delimiter"></span><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
-<i class="fas fa-adjust fa-fw"></i>
-</a>
-</div>
-</div>
-</div>
-</header><header class=mobile id=header-mobile>
-<div class=header-container>
-<div class=header-wrapper>
-<div class=header-title>
-<a href=/ title="Robear Selwans' Portfolio">Robear Selwans' Portfolio</a>
-</div>
-<div class=menu-toggle id=menu-toggle-mobile>
-<span></span><span></span><span></span>
-</div>
-</div>
-<div class=menu id=menu-mobile><a class=menu-item href=/about/ title>About</a><a class=menu-item href=/cv.pdf title>CV</a><a class=menu-item href=/categories/project/ title>Projects</a><a class=menu-item href=/categories/ title>Categories</a><a class=menu-item href=/tags/ title>Tags</a><div class=menu-item><a href=javascript:void(0); class=theme-switch title="Switch Theme">
-<i class="fas fa-adjust fa-fw"></i>
-</a>
-</div></div>
-</div>
-</header><main class=main>
-<div class=container><div class=toc id=toc-auto>
-<h2 class=toc-title>Contents</h2>
-<div class=toc-content id=toc-content-auto></div>
-</div><article class="page single" data-toc=disable><div class=single-card><h2 class="single-title animated flipInX">CPU RayTracer</h2><div class=post-meta>
-<div class=post-meta-line><span class=post-author><a href=https://mo7sen.github.io/about title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw"></i>Robear Selwans</a></span>&nbsp;<span class=post-category>published in <a href=/categories/project/><i class="far fa-folder fa-fw"></i>Project</a></span></div>
-<div class=post-meta-line><span><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-07-31>2021-07-31</time></span>&nbsp;<span><i class="fas fa-pencil-alt fa-fw"></i>&nbsp;810 words</span>&nbsp;
-<span><i class="far fa-clock fa-fw"></i>&nbsp;4 minutes</span>&nbsp;</div>
-</div>
-<hr><div class="details toc" id=toc-static data-kept>
-<div class="details-summary toc-title">
-<span>Contents</span>
-<span><i class="details-icon fas fa-angle-right"></i></span>
-</div>
-<div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
-<ul>
-<li><a href=#introduction>Introduction</a></li>
-<li><a href=#implementation>Implementation</a>
-<ul>
-<li><a href=#some-screenshots>Some screenshots</a></li>
-</ul>
-</li>
-<li><a href=#additional-stuff-i-added>Additional stuff I added</a>
-<ul>
-<li><a href=#custom-render-targets>Custom Render Targets</a></li>
-<li><a href=#multi-threading>Multi-threading</a></li>
-<li><a href=#triangle-meshes>Triangle Meshes</a></li>
-<li><a href=#obj-loading>OBJ Loading</a></li>
-<li><a href=#gltf2-loading>GLTF2 Loading</a></li>
-<li><a href=#pbr-materials>PBR Materials</a></li>
-</ul>
-</li>
-<li><a href=#final-render>Final Render</a></li>
-<li><a href=#things-to-add-in-the-future>Things to add in the future</a></li>
-</ul>
-</nav></div>
-</div><div class=content id=content><h2 id=introduction>Introduction</h2>
-<p>After finishing my <a href=https://mo7sen.github.io/projects/rustracer target=_blank rel="noopener noreffer">first raytracer</a>, it was obvious that I needed to make another one if I wanted to learn more about the topic. However, since I wasn’t confident enough to step out of the tutorial territory, I decided that I would use <a href=https://raytracing.github.io target=_blank rel="noopener noreffer">Peter Shirley’s RTOW series</a>.</p>
-<p>One of the major advantages of this series is that while it is introducing the concepts in a gentle manner, it is also giving advice on how to structure the project so that adding more features in the future doesn’t end up being a huge task with tons of refactors. Combined with the fact that this is my second raytracer, this meant that I could have a much nicer code structure for this one.</p>
-<h2 id=implementation>Implementation</h2>
-<p>After going through the first two books, I had a much more efficient raytracer
-than my first one with more features. Some of these features included:</p>
-<ul>
-<li>Antialiasing</li>
-<li>Motion blur</li>
-<li>Volumetric fog</li>
-<li>Emissive materials</li>
-<li>Bounding volume hierarchy</li>
-</ul>
-<h3 id=some-screenshots>Some screenshots</h3>
-<figure><img src=/cpu_rt/screenshot_base_4.png alt="Screenshot 4">
-</figure>
-<figure><img src=/cpu_rt/screenshot_base_3.png alt="Screenshot 3">
-</figure>
-<figure><img src=/cpu_rt/screenshot_base_2.png alt="Screenshot 2">
-</figure>
-<figure><img src=/cpu_rt/screenshot_base_1.png alt="Screenshot 1">
-</figure>
-<div class="details admonition note open">
-<div class="details-summary admonition-title">
-<i class="icon fas fa-pencil-alt fa-fw"></i>Note<i class="details-icon fas fa-angle-right fa-fw"></i>
-</div>
-<div class=details-content>
-<div class=admonition-content>While I was planning to go through the whole series, a quick skim through the
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><title>CPU RayTracer - Robear Selwans' Portfolio</title><meta name=description content="My second raytracer"><meta property="og:title" content="CPU RayTracer"><meta property="og:description" content="My second raytracer"><meta property="og:type" content="article"><meta property="og:url" content="https://mo7sen.github.io/projects/cpu-raytracer/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-07-31T13:25:24+00:00"><meta property="article:modified_time" content="2021-07-31T13:25:24+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="CPU RayTracer"><meta name=twitter:description content="My second raytracer"><meta name=application-name content="Robear Selwans' Portfolio"><meta name=apple-mobile-web-app-title content="Robear Selwans' Portfolio"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=canonical href=https://mo7sen.github.io/projects/cpu-raytracer/><link rel=prev href=https://mo7sen.github.io/projects/improvgfx/><link rel=stylesheet href=/css/page.min.css><link rel=stylesheet href=/css/home.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"CPU RayTracer","inLanguage":"en-us","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/mo7sen.github.io\/projects\/cpu-raytracer\/"},"genre":"posts","keywords":"Graphics","wordcount":810,"url":"https:\/\/mo7sen.github.io\/projects\/cpu-raytracer\/","datePublished":"2021-07-31T13:25:24+00:00","dateModified":"2021-07-31T13:25:24+00:00","publisher":{"@type":"Organization","name":"Robear Selwans"},"author":{"@type":"Person","name":"Robear Selwans"},"description":"My second raytracer"}</script></head><body data-header-desktop=fixed data-header-mobile=auto><script>(window.localStorage&&localStorage.getItem("theme")?localStorage.getItem("theme")==="dark":""==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches:""==="dark")&&document.body.setAttribute("theme","dark")</script><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title="Robear Selwans' Portfolio">Robear Selwans' Portfolio</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/about/>About </a><a class=menu-item href=/cv.pdf>CV </a><a class=menu-item href=/categories/project/>Projects </a><a class=menu-item href=/categories/>Categories </a><a class=menu-item href=/tags/>Tags </a><span class="menu-item delimiter"></span><a href=javascript:void(0); class="menu-item theme-switch" title="Switch Theme">
+<i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title="Robear Selwans' Portfolio">Robear Selwans' Portfolio</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><a class=menu-item href=/about/ title>About</a><a class=menu-item href=/cv.pdf title>CV</a><a class=menu-item href=/categories/project/ title>Projects</a><a class=menu-item href=/categories/ title>Categories</a><a class=menu-item href=/tags/ title>Tags</a><div class=menu-item><a href=javascript:void(0); class=theme-switch title="Switch Theme"><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><main class=main><div class=container><div class=toc id=toc-auto><h2 class=toc-title>Contents</h2><div class=toc-content id=toc-content-auto></div></div><article class="page single" data-toc=disable><div class=single-card><h2 class="single-title animated flipInX">CPU RayTracer</h2><div class=post-meta><div class=post-meta-line><span class=post-author><a href=https://mo7sen.github.io/about title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw"></i>Robear Selwans</a></span>&nbsp;<span class=post-category>published in <a href=/categories/project/><i class="far fa-folder fa-fw"></i>Project</a></span></div><div class=post-meta-line><span><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-07-31>2021-07-31</time></span>&nbsp;<span><i class="fas fa-pencil-alt fa-fw"></i>&nbsp;810 words</span>&nbsp;
+<span><i class="far fa-clock fa-fw"></i>&nbsp;4 minutes</span>&nbsp;</div></div><hr><div class="details toc" id=toc-static data-kept><div class="details-summary toc-title"><span>Contents</span>
+<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#introduction>Introduction</a></li><li><a href=#implementation>Implementation</a><ul><li><a href=#some-screenshots>Some screenshots</a></li></ul></li><li><a href=#additional-stuff-i-added>Additional stuff I added</a><ul><li><a href=#custom-render-targets>Custom Render Targets</a></li><li><a href=#multi-threading>Multi-threading</a></li><li><a href=#triangle-meshes>Triangle Meshes</a></li><li><a href=#obj-loading>OBJ Loading</a></li><li><a href=#gltf2-loading>GLTF2 Loading</a></li><li><a href=#pbr-materials>PBR Materials</a></li></ul></li><li><a href=#final-render>Final Render</a></li><li><a href=#things-to-add-in-the-future>Things to add in the future</a></li></ul></nav></div></div><div class=content id=content><h2 id=introduction>Introduction</h2><p>After finishing my <a href=https://mo7sen.github.io/projects/rustracer target=_blank rel="noopener noreffer">first raytracer</a>, it was obvious that I needed to make another one if I wanted to learn more about the topic. However, since I wasn’t confident enough to step out of the tutorial territory, I decided that I would use <a href=https://raytracing.github.io target=_blank rel="noopener noreffer">Peter Shirley’s RTOW series</a>.</p><p>One of the major advantages of this series is that while it is introducing the concepts in a gentle manner, it is also giving advice on how to structure the project so that adding more features in the future doesn’t end up being a huge task with tons of refactors. Combined with the fact that this is my second raytracer, this meant that I could have a much nicer code structure for this one.</p><h2 id=implementation>Implementation</h2><p>After going through the first two books, I had a much more efficient raytracer
+than my first one with more features. Some of these features included:</p><ul><li>Antialiasing</li><li>Motion blur</li><li>Volumetric fog</li><li>Emissive materials</li><li>Bounding volume hierarchy</li></ul><h3 id=some-screenshots>Some screenshots</h3><figure><img src=/cpu_rt/screenshot_base_4.png alt="Screenshot 4"></figure><figure><img src=/cpu_rt/screenshot_base_3.png alt="Screenshot 3"></figure><figure><img src=/cpu_rt/screenshot_base_2.png alt="Screenshot 2"></figure><figure><img src=/cpu_rt/screenshot_base_1.png alt="Screenshot 1"></figure><div class="details admonition note open"><div class="details-summary admonition-title"><i class="icon fas fa-pencil-alt fa-fw"></i>Note<i class="details-icon fas fa-angle-right fa-fw"></i></div><div class=details-content><div class=admonition-content>While I was planning to go through the whole series, a quick skim through the
 third book made it clear that it&rsquo;s way more advanced than the first two. While
 I&rsquo;m still planning to go through it, I&rsquo;m postponing it until I either need to
-read it or until I have more time to spare.</div>
-</div>
-</div>
-<h2 id=additional-stuff-i-added>Additional stuff I added</h2>
-<p>After finishing the first two books, the time came for me to start playing
-around and adding more features to the raytracer.</p>
-<h3 id=custom-render-targets>Custom Render Targets</h3>
-<p>While the books expected the output to be exported to a PPM image file, I
-abstracted it into a generic <code>RenderTarget</code> instead. This had two advantages:</p>
-<ol>
-<li>If I ever decide to make the raytracer more interactive, I&rsquo;ll need to start
+read it or until I have more time to spare.</div></div></div><h2 id=additional-stuff-i-added>Additional stuff I added</h2><p>After finishing the first two books, the time came for me to start playing
+around and adding more features to the raytracer.</p><h3 id=custom-render-targets>Custom Render Targets</h3><p>While the books expected the output to be exported to a PPM image file, I
+abstracted it into a generic <code>RenderTarget</code> instead. This had two advantages:</p><ol><li>If I ever decide to make the raytracer more interactive, I&rsquo;ll need to start
 outputting frames to a window. To avoid major refactors, the window can
 simply be a <code>RenderTarget</code> and be quite trivial to replace the image output
-with it.</li>
-<li>For most of the development time, I was developing the raytracer on my own
+with it.</li><li>For most of the development time, I was developing the raytracer on my own
 headless server and hosting the output image through the browser. This meant
 that I needed a more common format (e.g. PNG) so having the <code>RenderTarget</code>
-be changeable on demand was quite useful.</li>
-</ol>
-<h3 id=multi-threading>Multi-threading</h3>
-<p>Due to how rays are their own independent entities that traverse the scene
+be changeable on demand was quite useful.</li></ol><h3 id=multi-threading>Multi-threading</h3><p>Due to how rays are their own independent entities that traverse the scene
 without caring for each other, splitting the rays over multiple threads is quite
 trivial. Since there were no concurrency problems that could occur, I settled on
 using OpenMP as it was easy to use and efficient when the parallelization is
 trivial enough. I ended up splitting the work on the scanline level; this meant
-that each thread would be responsible for a set of rows in the image.</p>
-<h3 id=triangle-meshes>Triangle Meshes</h3>
-<p>Having seen enough spheres throughout the development, I decided that it was
+that each thread would be responsible for a set of rows in the image.</p><h3 id=triangle-meshes>Triangle Meshes</h3><p>Having seen enough spheres throughout the development, I decided that it was
 time for me to display more complex stuff. Having triangle meshes required me to
 first find a way to test the intersection with an individual triangle. For this
 I used scratchapixel&rsquo;s nice
 <a href=https://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-rendering-a-triangle/ray-triangle-intersection-geometric-solution target=_blank rel="noopener noreffer">guide</a>
-on how to implement ray-triangle intersections.</p>
-<figure><img src=/cpu_rt/ray_triangle_intersection.png alt="Ray-Triangle Intersection"><figcaption>
-<h4>Figure 1: Ray-Triangle Intersection</h4>
-</figcaption>
-</figure>
-<h3 id=obj-loading>OBJ Loading</h3>
-<p>After that was finished, I needed to start loading meshes. For that, I decided
+on how to implement ray-triangle intersections.</p><figure><img src=/cpu_rt/ray_triangle_intersection.png alt="Ray-Triangle Intersection"><figcaption><h4>Figure 1: Ray-Triangle Intersection</h4></figcaption></figure><h3 id=obj-loading>OBJ Loading</h3><p>After that was finished, I needed to start loading meshes. For that, I decided
 to start with the OBJ format then my work my way up. For the OBJ, I got
 <a href=https://github.com/tinyobjloader/tinyobjloader target=_blank rel="noopener noreffer">tinyobjloader</a> and started
-loading the meshes and materials from it.</p>
-<figure><img src=/cpu_rt/obj_1.png alt="OBJ Loading: African Head">
-</figure>
-<figure><img src=/cpu_rt/obj_2.png alt="OBJ Loading: Rock">
-</figure>
-<figure><img src=/cpu_rt/obj_3.png alt="OBJ Loading: Stone Golem"><figcaption>
-<h4>Figure 2: Loading OBJ Models</h4>
-</figcaption>
-</figure>
-<h3 id=gltf2-loading>GLTF2 Loading</h3>
-<p>I knew that if I wanted to have more complex scenes being rendered, I&rsquo;d need a
+loading the meshes and materials from it.</p><figure><img src=/cpu_rt/obj_1.png alt="OBJ Loading: African Head"></figure><figure><img src=/cpu_rt/obj_2.png alt="OBJ Loading: Rock"></figure><figure><img src=/cpu_rt/obj_3.png alt="OBJ Loading: Stone Golem"><figcaption><h4>Figure 2: Loading OBJ Models</h4></figcaption></figure><h3 id=gltf2-loading>GLTF2 Loading</h3><p>I knew that if I wanted to have more complex scenes being rendered, I&rsquo;d need a
 more complex format like GLTF2. So I got
-<a href=https://github.com/syoyo/tinygltf target=_blank rel="noopener noreffer">tinygltf</a> and started loading GLTF files.</p>
-<figure><img src=/cpu_rt/gltf_1.png alt="GLTF Loading: Damaged Helmet (No shading)">
-</figure>
-<figure><img src=/cpu_rt/gltf_2.png alt="GLTF Loading: Textured Box (UV Mapping)">
-</figure>
-<div class="details admonition note open">
-<div class="details-summary admonition-title">
-<i class="icon fas fa-pencil-alt fa-fw"></i>Note<i class="details-icon fas fa-angle-right fa-fw"></i>
-</div>
-<div class=details-content>
-<div class=admonition-content>One of the major problems I had was the low performance that a high-poly model
+<a href=https://github.com/syoyo/tinygltf target=_blank rel="noopener noreffer">tinygltf</a> and started loading GLTF files.</p><figure><img src=/cpu_rt/gltf_1.png alt="GLTF Loading: Damaged Helmet (No shading)"></figure><figure><img src=/cpu_rt/gltf_2.png alt="GLTF Loading: Textured Box (UV Mapping)"></figure><div class="details admonition note open"><div class="details-summary admonition-title"><i class="icon fas fa-pencil-alt fa-fw"></i>Note<i class="details-icon fas fa-angle-right fa-fw"></i></div><div class=details-content><div class=admonition-content>One of the major problems I had was the low performance that a high-poly model
 brought with it. This was easily fixed by changing the way primitives were
 stored inside a mesh. Instead of having a mesh be a list of mesh primitives, I
 changed it to be a BVH of primitives. This, combined with some pre-processing in
 blender to increase the number of primitives, led to a huge jump in performance
-when rendering the damaged helmet GLTF model.</div>
-</div>
-</div>
-<h3 id=pbr-materials>PBR Materials</h3>
-<p>One of the reasons that I switched from OBJ models to GLTF was how limited the
+when rendering the damaged helmet GLTF model.</div></div></div><h3 id=pbr-materials>PBR Materials</h3><p>One of the reasons that I switched from OBJ models to GLTF was how limited the
 material model was for OBJ. With GLTF, I had more flexibility due to it
 supported the metallic-roughness pipeline by default (and having extensions for
-other pipelines). So I started making a PBR material; this involved:</p>
-<ul>
-<li>Diffuse mapping</li>
-<li>Normal Mapping</li>
-<li>Emissive Mapping</li>
-<li>Metallic-Roughness</li>
-</ul>
-<p>Unfortunately, the scene format in this raytracer wasn&rsquo;t ready for a PBR
+other pipelines). So I started making a PBR material; this involved:</p><ul><li>Diffuse mapping</li><li>Normal Mapping</li><li>Emissive Mapping</li><li>Metallic-Roughness</li></ul><p>Unfortunately, the scene format in this raytracer wasn&rsquo;t ready for a PBR
 pipeline as I had no way to know whether I&rsquo;m hitting a light or not, so I
-settled on having an approximation that, while inaccurate, doesn&rsquo;t look too bad.</p>
-<figure><img src=/cpu_rt/gltf_3.png alt="GLTF Loading: Damaged Helmet (PBR)">
-</figure>
-<h2 id=final-render>Final Render</h2>
-<figure><img src=/cpu_rt/preview.png alt="Final Render (Thumbnail Image)">
-</figure>
-<h2 id=things-to-add-in-the-future>Things to add in the future</h2>
-<ul>
-<li>Change the structure of the BVH so that it is a contigious array so traversal
-is more cache-friendly</li>
-<li>GPU Acceleration (Probably, Vulkan Compute shaders)</li>
-<li>True PBR</li>
-<li>Concepts from the third book</li>
-</ul>
-<p>The source code for this raytracer can be found in <a href=https://github.com/mo7sen/cpu-raytracer target=_blank rel="noopener noreffer">this repository</a>.</p>
-</div><div class=post-footer id=post-footer>
-<div class=post-info><div class=post-info-tag><span><a href=/tags/graphics/>Graphics</a>
-</span></div><div class=post-info-line><div class=post-info-mod>
-<span>Updated on 2021-07-31</span>
-</div><div class=post-info-mod></div>
-</div><div class=post-info-share>
-<span><a href=javascript:void(0); title="Share on Twitter" data-sharer=twitter data-url=https://mo7sen.github.io/projects/cpu-raytracer/ data-title="CPU RayTracer" data-hashtags=Graphics><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="Share on Facebook" data-sharer=facebook data-url=https://mo7sen.github.io/projects/cpu-raytracer/ data-hashtag=Graphics><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="Share on Reddit" data-sharer=reddit data-url=https://mo7sen.github.io/projects/cpu-raytracer/><i class="fab fa-reddit fa-fw"></i></a></span>
-</div></div><div class=post-nav><a href=/projects/improvgfx/ class=prev rel=prev title=ImprovGFX><i class="fas fa-angle-left fa-fw"></i>Previous Post</a></div></div>
-</div></article></div>
-</main>
-<footer class=footer><div class=footer-container><div class=footer-line itemscope itemtype=http://schema.org/CreativeWork><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2021</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://mo7sen.github.io/about>Robear Selwans</a></span></div>
-</div>
-</footer>
-</div>
-<div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title="Back to Top">
-<i class="fas fa-chevron-up fa-fw"></i>
-</a></div><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script src=/lib/lazysizes/lazysizes.min.js></script><script src=/lib/clipboard/clipboard.min.js></script><script src=/lib/sharer/sharer.min.js></script><script>window.config={code:{copyTitle:"Copy to clipboard",maxShownLines:10},comment:{}}</script><script src=/js/theme.min.js></script></body></html>
+settled on having an approximation that, while inaccurate, doesn&rsquo;t look too bad.</p><figure><img src=/cpu_rt/gltf_3.png alt="GLTF Loading: Damaged Helmet (PBR)"></figure><h2 id=final-render>Final Render</h2><figure><img src=/cpu_rt/preview.png alt="Final Render (Thumbnail Image)"></figure><h2 id=things-to-add-in-the-future>Things to add in the future</h2><ul><li>Change the structure of the BVH so that it is a contigious array so traversal
+is more cache-friendly</li><li>GPU Acceleration (Probably, Vulkan Compute shaders)</li><li>True PBR</li><li>Concepts from the third book</li></ul><p>The source code for this raytracer can be found in <a href=https://github.com/mo7sen/cpu-raytracer target=_blank rel="noopener noreffer">this repository</a>.</p></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-tag><span><a href=/tags/graphics/>Graphics</a></span></div><div class=post-info-line><div class=post-info-mod><span>Updated on 2021-07-31</span></div><div class=post-info-mod></div></div><div class=post-info-share><span><a href=javascript:void(0); title="Share on Twitter" data-sharer=twitter data-url=https://mo7sen.github.io/projects/cpu-raytracer/ data-title="CPU RayTracer" data-hashtags=Graphics><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="Share on Facebook" data-sharer=facebook data-url=https://mo7sen.github.io/projects/cpu-raytracer/ data-hashtag=Graphics><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="Share on Reddit" data-sharer=reddit data-url=https://mo7sen.github.io/projects/cpu-raytracer/><i class="fab fa-reddit fa-fw"></i></a></span></div></div><div class=post-nav><a href=/projects/improvgfx/ class=prev rel=prev title=ImprovGFX><i class="fas fa-angle-left fa-fw"></i>Previous Post</a></div></div></div></article></div></main><footer class=footer><div class=footer-container><div class=footer-line itemscope itemtype=http://schema.org/CreativeWork><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2021 - 2024</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://mo7sen.github.io/about>Robear Selwans</a></span></div></div></footer></div><div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title="Back to Top"><i class="fas fa-chevron-up fa-fw"></i></a></div><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script src=/lib/lazysizes/lazysizes.min.js></script><script src=/lib/clipboard/clipboard.min.js></script><script src=/lib/sharer/sharer.min.js></script><script>window.config={code:{copyTitle:"Copy to clipboard",maxShownLines:10},comment:{}}</script><script src=/js/theme.min.js></script></body></html>
